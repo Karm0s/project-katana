@@ -1,4 +1,10 @@
-h1 {
+.profile-img {
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  object-fit: cover; }
+
+.errors li {
   color: red; }
 
 /*# sourceMappingURL=style.css.map */

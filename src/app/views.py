@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Anime
 from django.views.generic import (
     ListView,
+    TemplateView,
 )
 
 # Create your views here.
@@ -19,4 +20,9 @@ class IndexListView(ListView):
         context["user"] = self.request.user
         return context
     
-    
+
+class LoginView(TemplateView):
+    template_name = "login.html"
+
+class RegisterView(TemplateView):
+    template_name = "register.html"
