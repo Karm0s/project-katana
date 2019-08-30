@@ -9,6 +9,8 @@ from django.views.generic import (
 class IndexListView(ListView):
     template_name = 'index.html'
 
+    context_object_name = 'animes'
+
     def get_queryset(self):
         return Anime.objects.all()
     

@@ -5,5 +5,14 @@
         <div class="row text-center">
             <div class="col">{{user.is_authenticated}}</div>
         </div>
+        {%for anime in animes%}
+        <div class="row">
+            <div class="col">
+                
+                <h1 class="display-3">{{anime.name}}</h1>
+
+            </div>
+        </div>
+        {%endfor%}
     </div>
 {% endblock content %}
