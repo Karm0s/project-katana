@@ -9,3 +9,7 @@ class Anime(models.Model):
     likes = models.IntegerField()
     update_date = models.DateTimeField()
 
+    def __str__(self):
+        return self.name
+    
+
