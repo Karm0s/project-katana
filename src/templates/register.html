@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load sass_tags %}
+{% load static %}
+
+{% block styles%}
+<link rel="stylesheet" href="{% sass_src 'sass/auth_pages_style.scss' %}">
+{% endblock styles%}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center text-center">
+        <div class="col">
+            <h2>KATANA</h2>
+        </div>
+    </div>
+</div>
+<div class="container auth-form">
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    Login
+                </div>
+                <div class="card-body">
+                    <!-- <ul id="errors" class="errors">
+                    </ul> -->
+                    <form action="" class="form" method="POST" id="register-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label for="username" class="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" maxlength="20"
+                                required autofocus>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email-address">E-Mail address</label>
+                            <input type="email" id="email-address" class="form-control" name="email-address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email-address-confirmation">Confirm e-mail address</label>
+                            <input type="email" id="email-address-confirmation" class="form-control"
+                                name="email-address-confirmation" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control" name="password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Confirm password</label>
+                            <input type="password" id="password-confirmation" class="form-control"
+                                name="password-confirmation" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="profile-image">Profile picture</label>
+                            <input type="file" id="profile-image" class="form-control-file">
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-primary" id="register-button" disabled>Register</button>
+                            <p>Have an account? <a href="{% url 'login' %}">Login.</a></p>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5 col-md-8">
+            <ul id="errors" class="errors alert alert-danger">
+
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/register.js' %}"></script>
+{% endblock content %}
