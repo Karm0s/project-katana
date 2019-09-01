@@ -7,4 +7,10 @@ body {
 .errors li {
   color: red; }
 
+.profile-img-preview {
+  border-radius: 50%;
+  width: 15em;
+  height: 15em;
+  object-fit: cover; }
+
 /*# sourceMappingURL=auth_pages_style.css.map */

@@ -34,7 +34,10 @@ function validate_email(email) {
 }
 
 
-email_field.addEventListener("keyup", function(event){
+register_form.addEventListener("keyup", function(event){
+
+
+    // Checking if email is valid
     isValidEmail = validate_email(email_field.value);
 
     if(isValidEmail){
@@ -49,9 +52,9 @@ email_field.addEventListener("keyup", function(event){
             errors_list.appendChild(invalid_email);
         }
     }
-});
 
-email_field_confirmation.addEventListener("focusout", function(event){
+
+    // Checking if confirmed email is matching
     if(email_field_confirmation.value === email_field.value){
         email_confirmation_ok = true;
         if (errors_list.contains(invalid_email_confirmation)){
@@ -65,9 +68,7 @@ email_field_confirmation.addEventListener("focusout", function(event){
         }
     }
 
-});
-
-password_field.addEventListener("keyup", function(event){
+    // Checking password length
     if (password_field.value.length >= 8){
         password_ok = true;
         if (errors_list.contains(invalid_password)){
@@ -80,9 +81,8 @@ password_field.addEventListener("keyup", function(event){
             errors_list.appendChild(invalid_password);
         }
     }
-});
 
-password_field_confirmation.addEventListener("focusout", function(event){
+    // Checking if confirmed password is matching
     if (password_field_confirmation.value === password_field.value){
         password_confirmation_ok = true;
         if (errors_list.contains(invalid_password_confirmation)){
@@ -96,15 +96,22 @@ password_field_confirmation.addEventListener("focusout", function(event){
             errors_list.appendChild(invalid_password_confirmation);
         }
     }
-});
 
-register_form.addEventListener("keyup", function(event){
+    // Enable/Disable login button after checking all form fields
     if (email_ok && password_ok && email_confirmation_ok && password_confirmation_ok){
         console.log("here");
         register_button.disabled = false;
     }
     else{
         register_button.disabled = true;
+    }
+
+    // Hiding/Showing error list if there is any error inside
+    if (errors_list.hasChildNodes()){
+        errors_list.hidden = false;
+    }
+    else{
+        errors_list.hidden = true;
     }
 });
 

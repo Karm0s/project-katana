@@ -16,7 +16,9 @@ function validate_email(email) {
     return re.test(String(email).toLowerCase());
 }
 
-email_field.addEventListener("keyup", function(even){
+
+login_form.addEventListener("keyup", function(event){
+
     isValidEmail = validate_email(email_field.value);
 
     if(isValidEmail){
@@ -31,18 +33,15 @@ email_field.addEventListener("keyup", function(even){
             errors_list.appendChild(invalid_email);
         }
     }
-});
 
-password_field.addEventListener("keyup", function(event){
     if (password_field.value){
         password_ok = true;
     }
     else{
         password_ok = false;
     }
-});
 
-login_form.addEventListener("keyup", function(event){
+
     if (email_ok && password_ok){
         login_button.disabled = false;
     }
