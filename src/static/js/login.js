@@ -48,6 +48,14 @@ login_form.addEventListener("keyup", function(event){
     else{
         login_button.disabled = true;
     }
+
+    // Hiding/Showing error list if there is any error inside
+    if (errors_list.hasChildNodes()){
+        errors_list.hidden = false;
+    }
+    else{
+        errors_list.hidden = true;
+    }
 })
 
 login_button.addEventListener("click", function(event){
