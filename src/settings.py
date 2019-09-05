@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import cloudinary
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -136,9 +135,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 SASS_PROCESSOR_AUTO_INCLUDE = False
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, "static") if DEBUG else STATIC_ROOT
 
-# Cloudinary config
-cloudinary.config(
-    cloud_name = os.environ.get("CLOUDINARY_CLOUD_NAME"),
-    api_key = os.environ.get("CLOUDINARY_API_KEY"),
-    api_secret = os.environ.get("CLOUDINARY_API_SECRET"),
-)
+# CLOUDINARY = {
+#   'cloud_name': 'yanisbouchenna',  
+#   'api_key': '153176493454348',  
+#   'api_secret': 'Bu9R8hmbKhsO0iNqFWcBW-iJilo',  
+# }
+
+CLOUDINARY = {
+  'cloud_name': os.environ.get("CLOUDINARY_CLOUD_NAME"),  
+  'api_key': os.environ.get("CLOUDINARY_API_KEY"),  
+  'api_secret': os.environ.get("CLOUDINARY_API_SECRET"),  
+}

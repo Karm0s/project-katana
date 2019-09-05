@@ -24,6 +24,10 @@ class IndexListView(ListView):
 class LoginView(TemplateView):
     template_name = "login.html"
 
+    def post(self, request, *args, **kwargs):
+        form = request.POST[""]
+
+
 
 class RegisterView(TemplateView):
     template_name = "register.html"

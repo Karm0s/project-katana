@@ -1,28 +1,25 @@
 from django.db import models
-from django.db.models.signals import pre_delete
-from cloudinary.models import CloudinaryField
+from django.contrib.auth.models import User
 
-import cloudinary
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Anime(models.Model):
 
-    name = models.CharField(max_length=100)
-    original_manga = models.CharField(max_length=100)
+    name = models.CharField(max_length=150)
+    original_manga = models.CharField(max_length=150)
     last_adapted_chapter = models.IntegerField()
     likes = models.IntegerField()
     update_date = models.DateTimeField()
+    creation_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
     
 
-class Profile(Models.model):
+class Profile(models.Model):
 
-    image_url = models.CharField()
-    image = CloudinaryField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
 
-@receiver(pre_delete, sender=Profile)
-def photo_delete(sender, instance, **kwargs):
-    cloudinary.uploader.destroy(instance.image.public_id)
-
+    image = CloudinaryField("image")
+    creation_date = models.DateTimeField(auto_now_add=True)
